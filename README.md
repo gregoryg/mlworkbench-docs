@@ -54,7 +54,7 @@ The ML Workbench V1 contains 3 major components.
      - Run `docker run --network="host" -p 8888:8888 -v {directory on the server}:/workspace tgbill/tigerlab`, where 
        - `{directory on the server}`  will be mapped to the root directory in TigerLab, so that any files you created in TigerLab will be saved to your server.
        - If there is a firewall, you might need to allow the port of the service (default 8888). 
-       - Once the container is deployed successfully, you can access TigerLab in your browser at address `http://server_ip:8888/lab?token=__token__`, where `server_ip` is the ip address of the server running TigerLab and __token__ is printed out on the terminal when you finished deploying the container. 
+       - Once the container is deployed successfully, you can access TigerLab in your browser at address `http://server_ip:8888/lab?token=__token__`, where `server_ip` is the ip address of the server running TigerLab and `__token__` is printed out on the terminal when you finished deploying the container. 
 4. If everything goes well, you should have JupyterLab open in your browser or on the desktop now. Click on the `ML Template` widget to download the example notebooks and have fun! (The notebooks are named to follow the natural order of progression but each one is self-contained.)
 
 ## Appendix
