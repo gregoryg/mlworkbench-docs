@@ -8,6 +8,8 @@ Machine learning on graph data has become a common task across industries. Howev
 
 For a quick start, feel free to skip the Overview section and jump to [Getting Started](https://github.com/tg-bill/mlworkbench-docs#getting-started) directly.
 
+**Note**: The current version only supports model training. Model tuning and hosting will come soon but they are beyond the scope of the current version.
+
 ## System Overview
 
 The ML Workbench V1 contains 3 major components.
