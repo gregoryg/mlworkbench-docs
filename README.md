@@ -8,6 +8,8 @@ Machine learning on graph data has become a common task across industries. Howev
 
 For a quick start, feel free to skip the Overview section and jump to [Getting Started](https://github.com/tg-bill/mlworkbench-docs#getting-started) directly.
 
+**Note**: The current version only supports model training. Model tuning and hosting will come soon but they are beyond the scope of the current version.
+
 ## System Overview
 
 The ML Workbench V1 contains 3 major components.
@@ -30,18 +32,18 @@ The ML Workbench V1 contains 3 major components.
 
 **Detailed Steps**
 1. You need a TigerGraph database server with TigerGraph 3.2+. See the [docs](https://docs.tigergraph.com/tigergraph-server/3.3/getting-started/docker) on how to start a TigerGraph Server. [tgcloud.io](https://tgcloud.io/) will be supported in the near future but right now the workbench only works with on-prem servers. 
-   - If you run the TigerGraph docker container, create a folder on the server and make sure it is mapped to the file system inside the container using the `-v {some folder on server}:{some folder in container}` option, e.g., `-v /home/user/data:/home/tigergraph/mydata`. This allows access to data inside the container from outside. Take note of this pair of folders as GDPS will also use those folders to save data. 
-   - If you run the TigerGraph software directly, then just create a folder to store output from the database temporarily, e.g., `mkdir /home/tigergraph/output`. Let’s call this folder `{some folder on server}` for later use in the doc.   
+   - If you will run the TigerGraph docker container, create a folder on the server and make sure it is mapped to the file system inside the container using the `-v {some folder on server}:{some folder in container}` option, e.g., `-v /home/user/data:/home/tigergraph/mydata`. This allows access to data inside the container from outside. Take note of this argument as GDPS will also use those folders to read and save data. 
+   - If you will run the TigerGraph software directly, then there is nothing much to do and go ahead.   
    - For security purposes, we recommend turning on [OAuth authentication](https://docs.tigergraph.com/tigergraph-server/3.3/user-access/enabling-user-authentication#enable-restpp-authentication) for the TigerGraph database even for development, as long as the server is accessible remotely. However, this step is optional.
 2. Deploy the Graph Data Processing Service docker image to your TigerGraph server, following the instructions below. You can also run the source code if that is more of your thing following the instructions in the [repo](https://github.com/TigerGraph-DevLabs/GDPS). If there is a firewall, you might need to allow the port of the service (default is 8000). 
-   - SSH into the server hosting the TigerGraph database. Note: Do not ssh into the database container if you are running TigerGraph's docker container. 
-   - If the database is running as a container, deploy GDPS as `docker run --network="host" -p 8000:8000 -v {some folder on server}:/home/tigergraph/output -e tg_output_path={some folder in container} tgbill/gdps:latest`. Refer to step 1 if you don’t remember what those curly braces mean. Those folder mappings allow GDPS and the database to exchange files although they run in two separate containers.
-   - If the database is running directly, deploy GDPS as `docker run --network="host" -p 8000:8000 -v {some folder on server}:/home/tigergraph/output -e tg_output_path={some folder on server} tgbill/gdps:latest`. Refer to step 1 if you don’t remember what those curly braces mean. {some folder on server} here is repeated twice because, the `-v` flag maps the temporary output folder on the server to the output folder inside the docker container, and the `-e` flag sets it as an environment variable inside the container so that the service knows where to find the output.
-   - You can set other environment variables to configure the service if needed
-     - `tg_rest_port`: The port for RESTPP. Default: 9000.
-     - `tg_gs_port`: The port for GSQL server. Default: 14240.
-     - `keep_tmp_files`: Whether to keep temporary files. A good number of temporary files will be generated in the temporary output folder while the service is running. It is not recommended to keep those files unless you are debugging. Default: False.
-     - `tg_default_credentials`: Whether to use the default username and password of TigerGraph (tigergraph) to authenticate with the database. If True, any authentication header sent to GDPS will be ignored and GDPS will talk to the database using the default credentials. This will open a big security hole and try to avoid doing it unless debugging locally. Default: False.
+   - Open a terminal on the machine hosting the TigerGraph database. Note: Do not open the terminal inside the database container if you are running TigerGraph's docker container. 
+   - Download this script with your favoriate tool such as wget `wget https://tigergraph-public-data.s3.us-west-1.amazonaws.com/ml-workbench/gdps/run_container.sh` 
+   - Run the downloaded script and it will guide you through the process of running the GDPS container: `bash run_container.sh`
+   - You can pass the following arguments to the script to configure the service if needed. E.g.: `bash run_container.sh --tg_rest_port 1000`.
+     - `--tg_rest_port`: The port for RESTPP. Default: 9000.
+     - `--tg_gs_port`: The port for GSQL server. Default: 14240.
+     - `--keep_tmp_files`: Whether to keep temporary files. A good number of temporary files will be generated in the temporary output folder while the service is running. It is not recommended to keep those files unless you are debugging. Default: False.
+     - `--tg_default_credentials`: Whether to use the default username and password of TigerGraph (tigergraph) to authenticate with the database. If True, any authentication header sent to GDPS will be ignored and GDPS will talk to the database using the default credentials. This will open a big security hole and try to avoid doing it unless debugging locally. Default: False.
    - To check whether GDPS is running and accessible, visit the url `http://server_ip:8000/` in your browser where `server_ip` is the IP address of the TigerGraph server. If you see something like `{"message":"Testing page. Remove before deployment"}`, then you are good to go.
 3. From now on, there are 3 paths forward to using the ML workbench depending on your needs.
    - If you just want to use the `tgml` package in your python code, `pip install torch && pip install tgml` will install the python library `tgml`. Then start writing your code or see the [tutorial notebooks](https://github.com/tg-bill/mlworkbench-docs/tree/main/tutorials/basics) for examples. 
