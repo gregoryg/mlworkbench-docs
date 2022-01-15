@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>tgml.data API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>tgml.data</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import base64
+import os
+from urllib.parse import quote_plus
+
+import requests
+from dotenv import load_dotenv
+from requests.adapters import HTTPAdapter
+
+__all__ = [&#34;TigerGraph&#34;]
+
+class TigerGraph:
+    def __init__(self,
+                 host: str = &#34;http://localhost&#34;,
+                 graph: str = None,
+                 username: str = None,
+                 password: str = None,
+                 rest_port: str = &#34;9000&#34;,
+                 gs_port: str = &#34;14240&#34;,
+                 token_auth: bool = True,
+                 max_retries: int = 3) -&gt; None:
+        &#34;&#34;&#34;Connection to the TigerGraph database. 
+
+        Conceptually, this class represents the graph stored in the database. 
+        Under the hood, it stores the necessary information to communicate with the TigerGraph database. 
+        It can read `username` and `password` from environment variables `TGUSERNAME` and `TGPASSWORD`. 
+        Hence, we recommend storing those credentials in the environment variables or 
+        in a `.env` file instead of hardcoding them in code. However, if you do provide `username` 
+        and `password` to this class constructor, the environment variables will be ignored.
+
+        **Note**: For the first time you initialize this class on a graph in TigerGraph, 
+        the initialization might take a minute as it installs the corresponding 
+        queries to the database and optimizes them. However, the query installation only 
+        needs to be done once, so it will take no time when you initialize the class 
+        on the same TG graph again. For the connection to work, the *Graph Data Processing Service* 
+        has to be running on the TigerGraph server.
+
+        Args:
+            host (str, optional): Address of the server. Defaults to &#34;http://localhost&#34;.
+            graph (str, optional): Name of the graph. Defaults to None.
+            username (str, optional): Username. Defaults to None.
+            password (str, optional): Password for the user. Defaults to None.
+            rest_port (str, optional): Port for the REST endpoint. Defaults to &#34;9000&#34;.
+            gs_port (str, optional): Port for GraphStudio. Defaults to &#34;14240&#34;.
+            token_auth (bool, optional): Whether to use token authentication. Defaults to True.
+            max_retries (int, optional): Maximal number of retries when a request fails. Defaults to 3.
+        &#34;&#34;&#34;
+        self.graph_name = graph
+        # Build endpoints
+        self.host = host
+        self._rest_port = rest_port
+        self._gs_port = gs_port
+        self._gsql_endpoint = &#34;{}:{}/gsqlserver/gsql/file&#34;.format(
+            host, gs_port)
+        self._builtin_endpoint = &#34;{}:{}/builtins/{}&#34;.format(
+            host, rest_port, graph)
+        self._query_endpoint = &#34;{}:{}/query/{}&#34;.format(
+            host, rest_port, graph)
+        # Resolve credentials
+        # If username or password is not provided, use environment variables.
+        load_dotenv()
+        if not username:
+            username = os.getenv(&#39;TGUSERNAME&#39;)
+        if not password:
+            password = os.getenv(&#34;TGPASSWORD&#34;)
+        # Set up request sessions
+        # Rest API session that uses token to authenticate
+        self._rest_session = requests.Session()
+        self._rest_session.mount(
+            &#39;http://&#39;, HTTPAdapter(max_retries=max_retries))
+        if token_auth:
+            resp = self._rest_session.get(&#34;{}:{}/requesttoken&#34;.format(host, rest_port),
+                                          params={&#34;graph&#34;: graph}, auth=(username, password))
+            resp.raise_for_status()
+            if resp.json()[&#39;error&#39;]:
+                raise Exception(resp.json()[&#39;message&#39;])
+            self._rest_session.headers.update(
+                {&#39;Authorization&#39;: &#39;Bearer &#39; + resp.json()[&#34;results&#34;][&#34;token&#34;]})
+        else:
+            user_pass = base64.b64encode(&#39;{}:{}&#39;.format(
+                username, password).encode()).decode()
+            self._rest_session.headers.update(
+                {&#39;Authorization&#39;: &#34;Basic {}&#34;.format(user_pass)})
+        # GSQL session that uses passowrd to autheticate, as GSQL server does not support token.
+        self._gsql_session = requests.Session()
+        self._gsql_session.mount(
+            &#39;http://&#39;, HTTPAdapter(max_retries=max_retries))
+        self._gsql_session.auth = (username, password)
+        # Mixed session that uses both token and password.
+        self._mixed_session = requests.Session()
+        self._mixed_session.mount(
+            &#39;http://&#39;, HTTPAdapter(max_retries=max_retries))
+        self._mixed_session.headers[&#39;Authorization&#39;] = self._rest_session.headers[&#39;Authorization&#39;]
+        self._mixed_session.headers[&#39;Basic-Auth&#39;] = resp.request.headers[&#39;Authorization&#39;] if token_auth else self._rest_session.headers[&#39;Authorization&#39;]
+        # Instal misc queries on the graph
+        resp = self._mixed_session.get(
+            &#34;{}:8000/misc/vertex_number/init&#34;.format(host), params={&#34;graph&#34;: graph})
+        resp.raise_for_status()
+
+    def info(self) -&gt; None:
+        &#34;&#34;&#34;Show info about graph schema and other metadata
+        &#34;&#34;&#34;        
+        query = &#34;USE GRAPH {}\nLS&#34;.format(self.graph_name)
+        resp = self._gsql_session.post(self._gsql_endpoint,
+                                       data=quote_plus(query.encode(&#34;utf-8&#34;)))
+        resp.raise_for_status()
+        for line in resp.text.splitlines():
+            if not line.startswith(&#34;__GSQL__&#34;):
+                print(line)
+
+    def number_of_vertices(self, vertex_type: str = None, filter_by: str = None) -&gt; int:
+        &#34;&#34;&#34;Get number of vertices (by type and by condition).
+
+        Args:
+            vertex_type (str, optional): Get number of vertices for a specific type. If `None`, all types of vertices will be counted. Defaults to None.
+            filter_by (str, optional): A boolean attribute of vertices. Only vertices with this attribute being true will be counted. Defaults to None.
+
+        Returns:
+            int: Number of vertices
+        &#34;&#34;&#34;        
+        if not filter_by:
+            payload = {&#34;function&#34;: &#34;stat_vertex_number&#34;}
+            if vertex_type:
+                payload[&#34;type&#34;] = vertex_type
+            else:
+                payload[&#34;type&#34;] = &#34;*&#34;
+            resp = self._rest_session.post(
+                self._builtin_endpoint, json=payload)
+            res_key = &#34;count&#34;
+        else:
+            payload = {&#34;v_type&#34;: vertex_type, &#34;filter_by&#34;: filter_by}
+            resp = self._rest_session.get(
+                self._query_endpoint+&#34;/get_vertex_number&#34;, params=payload)
+            res_key = &#34;vertex_number&#34;
+        resp.raise_for_status()
+        resp_json = resp.json()
+        if vertex_type:
+            return resp_json[&#34;results&#34;][0][res_key]
+        else:
+            return sum(r[res_key] for r in resp_json[&#34;results&#34;])
+
+    def number_of_edges(self, edge_type: str = None) -&gt; int:
+        &#34;&#34;&#34;Get number of edges (by type).
+
+        Args:
+            edge_type (str, optional): Get number of edges for a specific type. If `None`, all types of edges will be counted. Defaults to None.
+
+        Returns:
+            int: Number of edges.
+        &#34;&#34;&#34;        
+        payload = {&#34;function&#34;: &#34;stat_edge_number&#34;}
+        if edge_type:
+            payload[&#34;type&#34;] = edge_type
+        else:
+            payload[&#34;type&#34;] = &#34;*&#34;
+        resp = self._rest_session.post(self._builtin_endpoint, json=payload)
+        resp.raise_for_status()
+        resp_json = resp.json()
+        if edge_type:
+            return resp_json[&#34;results&#34;][0][&#34;count&#34;]
+        else:
+            return sum(r[&#34;count&#34;] for r in resp_json[&#34;results&#34;])</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="tgml.data.TigerGraph"><code class="flex name class">
+<span>class <span class="ident">TigerGraph</span></span>
+<span>(</span><span>host: str = 'http://localhost', graph: str = None, username: str = None, password: str = None, rest_port: str = '9000', gs_port: str = '14240', token_auth: bool = True, max_retries: int = 3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connection to the TigerGraph database. </p>
+<p>Conceptually, this class represents the graph stored in the database.
+Under the hood, it stores the necessary information to communicate with the TigerGraph database.
+It can read <code>username</code> and <code>password</code> from environment variables <code>TGUSERNAME</code> and <code>TGPASSWORD</code>.
+Hence, we recommend storing those credentials in the environment variables or
+in a <code>.env</code> file instead of hardcoding them in code. However, if you do provide <code>username</code>
+and <code>password</code> to this class constructor, the environment variables will be ignored.</p>
+<p><strong>Note</strong>: For the first time you initialize this class on a graph in TigerGraph,
+the initialization might take a minute as it installs the corresponding
+queries to the database and optimizes them. However, the query installation only
+needs to be done once, so it will take no time when you initialize the class
+on the same TG graph again. For the connection to work, the <em>Graph Data Processing Service</em>
+has to be running on the TigerGraph server.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>host</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Address of the server. Defaults to "http://localhost".</dd>
+<dt><strong><code>graph</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Name of the graph. Defaults to None.</dd>
+<dt><strong><code>username</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Username. Defaults to None.</dd>
+<dt><strong><code>password</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Password for the user. Defaults to None.</dd>
+<dt><strong><code>rest_port</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Port for the REST endpoint. Defaults to "9000".</dd>
+<dt><strong><code>gs_port</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Port for GraphStudio. Defaults to "14240".</dd>
+<dt><strong><code>token_auth</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to use token authentication. Defaults to True.</dd>
+<dt><strong><code>max_retries</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Maximal number of retries when a request fails. Defaults to 3.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TigerGraph:
+    def __init__(self,
+                 host: str = &#34;http://localhost&#34;,
+                 graph: str = None,
+                 username: str = None,
+                 password: str = None,
+                 rest_port: str = &#34;9000&#34;,
+                 gs_port: str = &#34;14240&#34;,
+                 token_auth: bool = True,
+                 max_retries: int = 3) -&gt; None:
+        &#34;&#34;&#34;Connection to the TigerGraph database. 
+
+        Conceptually, this class represents the graph stored in the database. 
+        Under the hood, it stores the necessary information to communicate with the TigerGraph database. 
+        It can read `username` and `password` from environment variables `TGUSERNAME` and `TGPASSWORD`. 
+        Hence, we recommend storing those credentials in the environment variables or 
+        in a `.env` file instead of hardcoding them in code. However, if you do provide `username` 
+        and `password` to this class constructor, the environment variables will be ignored.
+
+        **Note**: For the first time you initialize this class on a graph in TigerGraph, 
+        the initialization might take a minute as it installs the corresponding 
+        queries to the database and optimizes them. However, the query installation only 
+        needs to be done once, so it will take no time when you initialize the class 
+        on the same TG graph again. For the connection to work, the *Graph Data Processing Service* 
+        has to be running on the TigerGraph server.
+
+        Args:
+            host (str, optional): Address of the server. Defaults to &#34;http://localhost&#34;.
+            graph (str, optional): Name of the graph. Defaults to None.
+            username (str, optional): Username. Defaults to None.
+            password (str, optional): Password for the user. Defaults to None.
+            rest_port (str, optional): Port for the REST endpoint. Defaults to &#34;9000&#34;.
+            gs_port (str, optional): Port for GraphStudio. Defaults to &#34;14240&#34;.
+            token_auth (bool, optional): Whether to use token authentication. Defaults to True.
+            max_retries (int, optional): Maximal number of retries when a request fails. Defaults to 3.
+        &#34;&#34;&#34;
+        self.graph_name = graph
+        # Build endpoints
+        self.host = host
+        self._rest_port = rest_port
+        self._gs_port = gs_port
+        self._gsql_endpoint = &#34;{}:{}/gsqlserver/gsql/file&#34;.format(
+            host, gs_port)
+        self._builtin_endpoint = &#34;{}:{}/builtins/{}&#34;.format(
+            host, rest_port, graph)
+        self._query_endpoint = &#34;{}:{}/query/{}&#34;.format(
+            host, rest_port, graph)
+        # Resolve credentials
+        # If username or password is not provided, use environment variables.
+        load_dotenv()
+        if not username:
+            username = os.getenv(&#39;TGUSERNAME&#39;)
+        if not password:
+            password = os.getenv(&#34;TGPASSWORD&#34;)
+        # Set up request sessions
+        # Rest API session that uses token to authenticate
+        self._rest_session = requests.Session()
+        self._rest_session.mount(
+            &#39;http://&#39;, HTTPAdapter(max_retries=max_retries))
+        if token_auth:
+            resp = self._rest_session.get(&#34;{}:{}/requesttoken&#34;.format(host, rest_port),
+                                          params={&#34;graph&#34;: graph}, auth=(username, password))
+            resp.raise_for_status()
+            if resp.json()[&#39;error&#39;]:
+                raise Exception(resp.json()[&#39;message&#39;])
+            self._rest_session.headers.update(
+                {&#39;Authorization&#39;: &#39;Bearer &#39; + resp.json()[&#34;results&#34;][&#34;token&#34;]})
+        else:
+            user_pass = base64.b64encode(&#39;{}:{}&#39;.format(
+                username, password).encode()).decode()
+            self._rest_session.headers.update(
+                {&#39;Authorization&#39;: &#34;Basic {}&#34;.format(user_pass)})
+        # GSQL session that uses passowrd to autheticate, as GSQL server does not support token.
+        self._gsql_session = requests.Session()
+        self._gsql_session.mount(
+            &#39;http://&#39;, HTTPAdapter(max_retries=max_retries))
+        self._gsql_session.auth = (username, password)
+        # Mixed session that uses both token and password.
+        self._mixed_session = requests.Session()
+        self._mixed_session.mount(
+            &#39;http://&#39;, HTTPAdapter(max_retries=max_retries))
+        self._mixed_session.headers[&#39;Authorization&#39;] = self._rest_session.headers[&#39;Authorization&#39;]
+        self._mixed_session.headers[&#39;Basic-Auth&#39;] = resp.request.headers[&#39;Authorization&#39;] if token_auth else self._rest_session.headers[&#39;Authorization&#39;]
+        # Instal misc queries on the graph
+        resp = self._mixed_session.get(
+            &#34;{}:8000/misc/vertex_number/init&#34;.format(host), params={&#34;graph&#34;: graph})
+        resp.raise_for_status()
+
+    def info(self) -&gt; None:
+        &#34;&#34;&#34;Show info about graph schema and other metadata
+        &#34;&#34;&#34;        
+        query = &#34;USE GRAPH {}\nLS&#34;.format(self.graph_name)
+        resp = self._gsql_session.post(self._gsql_endpoint,
+                                       data=quote_plus(query.encode(&#34;utf-8&#34;)))
+        resp.raise_for_status()
+        for line in resp.text.splitlines():
+            if not line.startswith(&#34;__GSQL__&#34;):
+                print(line)
+
+    def number_of_vertices(self, vertex_type: str = None, filter_by: str = None) -&gt; int:
+        &#34;&#34;&#34;Get number of vertices (by type and by condition).
+
+        Args:
+            vertex_type (str, optional): Get number of vertices for a specific type. If `None`, all types of vertices will be counted. Defaults to None.
+            filter_by (str, optional): A boolean attribute of vertices. Only vertices with this attribute being true will be counted. Defaults to None.
+
+        Returns:
+            int: Number of vertices
+        &#34;&#34;&#34;        
+        if not filter_by:
+            payload = {&#34;function&#34;: &#34;stat_vertex_number&#34;}
+            if vertex_type:
+                payload[&#34;type&#34;] = vertex_type
+            else:
+                payload[&#34;type&#34;] = &#34;*&#34;
+            resp = self._rest_session.post(
+                self._builtin_endpoint, json=payload)
+            res_key = &#34;count&#34;
+        else:
+            payload = {&#34;v_type&#34;: vertex_type, &#34;filter_by&#34;: filter_by}
+            resp = self._rest_session.get(
+                self._query_endpoint+&#34;/get_vertex_number&#34;, params=payload)
+            res_key = &#34;vertex_number&#34;
+        resp.raise_for_status()
+        resp_json = resp.json()
+        if vertex_type:
+            return resp_json[&#34;results&#34;][0][res_key]
+        else:
+            return sum(r[res_key] for r in resp_json[&#34;results&#34;])
+
+    def number_of_edges(self, edge_type: str = None) -&gt; int:
+        &#34;&#34;&#34;Get number of edges (by type).
+
+        Args:
+            edge_type (str, optional): Get number of edges for a specific type. If `None`, all types of edges will be counted. Defaults to None.
+
+        Returns:
+            int: Number of edges.
+        &#34;&#34;&#34;        
+        payload = {&#34;function&#34;: &#34;stat_edge_number&#34;}
+        if edge_type:
+            payload[&#34;type&#34;] = edge_type
+        else:
+            payload[&#34;type&#34;] = &#34;*&#34;
+        resp = self._rest_session.post(self._builtin_endpoint, json=payload)
+        resp.raise_for_status()
+        resp_json = resp.json()
+        if edge_type:
+            return resp_json[&#34;results&#34;][0][&#34;count&#34;]
+        else:
+            return sum(r[&#34;count&#34;] for r in resp_json[&#34;results&#34;])</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="tgml.data.TigerGraph.info"><code class="name flex">
+<span>def <span class="ident">info</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Show info about graph schema and other metadata</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def info(self) -&gt; None:
+    &#34;&#34;&#34;Show info about graph schema and other metadata
+    &#34;&#34;&#34;        
+    query = &#34;USE GRAPH {}\nLS&#34;.format(self.graph_name)
+    resp = self._gsql_session.post(self._gsql_endpoint,
+                                   data=quote_plus(query.encode(&#34;utf-8&#34;)))
+    resp.raise_for_status()
+    for line in resp.text.splitlines():
+        if not line.startswith(&#34;__GSQL__&#34;):
+            print(line)</code></pre>
+</details>
+</dd>
+<dt id="tgml.data.TigerGraph.number_of_edges"><code class="name flex">
+<span>def <span class="ident">number_of_edges</span></span>(<span>self, edge_type: str = None) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get number of edges (by type).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>edge_type</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Get number of edges for a specific type. If <code>None</code>, all types of edges will be counted. Defaults to None.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Number of edges.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def number_of_edges(self, edge_type: str = None) -&gt; int:
+    &#34;&#34;&#34;Get number of edges (by type).
+
+    Args:
+        edge_type (str, optional): Get number of edges for a specific type. If `None`, all types of edges will be counted. Defaults to None.
+
+    Returns:
+        int: Number of edges.
+    &#34;&#34;&#34;        
+    payload = {&#34;function&#34;: &#34;stat_edge_number&#34;}
+    if edge_type:
+        payload[&#34;type&#34;] = edge_type
+    else:
+        payload[&#34;type&#34;] = &#34;*&#34;
+    resp = self._rest_session.post(self._builtin_endpoint, json=payload)
+    resp.raise_for_status()
+    resp_json = resp.json()
+    if edge_type:
+        return resp_json[&#34;results&#34;][0][&#34;count&#34;]
+    else:
+        return sum(r[&#34;count&#34;] for r in resp_json[&#34;results&#34;])</code></pre>
+</details>
+</dd>
+<dt id="tgml.data.TigerGraph.number_of_vertices"><code class="name flex">
+<span>def <span class="ident">number_of_vertices</span></span>(<span>self, vertex_type: str = None, filter_by: str = None) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get number of vertices (by type and by condition).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>vertex_type</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Get number of vertices for a specific type. If <code>None</code>, all types of vertices will be counted. Defaults to None.</dd>
+<dt><strong><code>filter_by</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>A boolean attribute of vertices. Only vertices with this attribute being true will be counted. Defaults to None.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Number of vertices</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def number_of_vertices(self, vertex_type: str = None, filter_by: str = None) -&gt; int:
+    &#34;&#34;&#34;Get number of vertices (by type and by condition).
+
+    Args:
+        vertex_type (str, optional): Get number of vertices for a specific type. If `None`, all types of vertices will be counted. Defaults to None.
+        filter_by (str, optional): A boolean attribute of vertices. Only vertices with this attribute being true will be counted. Defaults to None.
+
+    Returns:
+        int: Number of vertices
+    &#34;&#34;&#34;        
+    if not filter_by:
+        payload = {&#34;function&#34;: &#34;stat_vertex_number&#34;}
+        if vertex_type:
+            payload[&#34;type&#34;] = vertex_type
+        else:
+            payload[&#34;type&#34;] = &#34;*&#34;
+        resp = self._rest_session.post(
+            self._builtin_endpoint, json=payload)
+        res_key = &#34;count&#34;
+    else:
+        payload = {&#34;v_type&#34;: vertex_type, &#34;filter_by&#34;: filter_by}
+        resp = self._rest_session.get(
+            self._query_endpoint+&#34;/get_vertex_number&#34;, params=payload)
+        res_key = &#34;vertex_number&#34;
+    resp.raise_for_status()
+    resp_json = resp.json()
+    if vertex_type:
+        return resp_json[&#34;results&#34;][0][res_key]
+    else:
+        return sum(r[res_key] for r in resp_json[&#34;results&#34;])</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="tgml" href="index.html">tgml</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="tgml.data.TigerGraph" href="#tgml.data.TigerGraph">TigerGraph</a></code></h4>
+<ul class="">
+<li><code><a title="tgml.data.TigerGraph.info" href="#tgml.data.TigerGraph.info">info</a></code></li>
+<li><code><a title="tgml.data.TigerGraph.number_of_edges" href="#tgml.data.TigerGraph.number_of_edges">number_of_edges</a></code></li>
+<li><code><a title="tgml.data.TigerGraph.number_of_vertices" href="#tgml.data.TigerGraph.number_of_vertices">number_of_vertices</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
